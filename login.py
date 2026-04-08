@@ -26,19 +26,31 @@ def mostrar_mensaje(correcto):
 
 ventana = tk.Tk()
 ventana.title("Login")
+ventana.geometry("350x180")
 
-tk.Label(ventana, text="Usuario").pack()
+# Labels
+label_usuario = tk.Label(ventana, text="Usuario")
+label_password = tk.Label(ventana, text="Contraseña")
+
+# Entradas
 entrada_usuario = tk.Entry(ventana)
-entrada_usuario.pack()
-
-tk.Label(ventana, text="Contraseña").pack()
 entrada_password = tk.Entry(ventana, show="*")
-entrada_password.pack()
 
+# Botón
 boton = tk.Button(ventana, text="Ingresar", command=capturar_credenciales)
-boton.pack()
 
+# Mensaje
 mensaje = tk.Label(ventana, text="")
-mensaje.pack()
+
+# Organizar con grid()
+label_usuario.grid(row=0, column=0, padx=10, pady=10, sticky="e")
+entrada_usuario.grid(row=0, column=1, padx=10, pady=10)
+
+label_password.grid(row=1, column=0, padx=10, pady=10, sticky="e")
+entrada_password.grid(row=1, column=1, padx=10, pady=10)
+
+boton.grid(row=2, column=0, columnspan=2, pady=10)
+
+mensaje.grid(row=3, column=0, columnspan=2, pady=10)
 
 ventana.mainloop()
